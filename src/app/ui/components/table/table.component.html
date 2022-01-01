@@ -1,0 +1,18 @@
+<ng-container *ngIf="table">
+    <table class="table">
+        <thead>
+            <tr>
+                <th *ngFor="let column of table.header.columns">
+                    {{column.title}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of table.body.rows" [ngClass]="row.classes">
+                <td *ngFor="let column of table.header.columns">
+                    {{row.data[column.key]}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>

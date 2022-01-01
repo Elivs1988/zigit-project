@@ -1,0 +1,54 @@
+<app-card [styles]="cardStyles" [classes]="cardClasses">
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
+    <div class="form-group">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        ngModel
+        required
+        email
+        #email="ngModel"
+      />
+    </div>
+    <div class="text-danger" *ngIf="email.errors?.['email']">
+      Invalid Email Address
+    </div>
+    <div class="form-group">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        ngModel
+        required
+        minlength="8"
+        #password="ngModel"
+      />
+    </div>
+    <ng-container
+      *ngIf="password.invalid && (password.dirty || password.touched)"
+    >
+      <div class="text-danger" *ngIf="password.errors?.['required']">
+        Password is required.
+      </div>
+      <div class="text-danger" *ngIf="password.errors?.['minlength']">
+        Password must be at least 8 characters long.
+      </div>
+    </ng-container>
+    <div class="d-grid mt-3">
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+        <span
+          *ngIf="isSubmitting"
+          class="spinner-grow spinner-grow-sm"
+          role="status"
+          aria-hidden="true"
+        ></span>
+        Login
+      </button>
+    </div>
+  </form>
+</app-card>

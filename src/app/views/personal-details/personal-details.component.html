@@ -1,0 +1,20 @@
+<app-card [classes]="cardClasses" [styles]="cardStyles">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+        src="{{ personalDetails.avatar }}"
+        class="img-fluid"
+        alt="..."
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h1 class="card-title">{{ personalDetails.name }}</h1>
+        <h1 class="card-title">{{ personalDetails.Team }}</h1>
+        <p class="card-text">
+          <small class="text-muted">{{ personalDetails.joinedAt }}</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</app-card>
