@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Project } from './../models/project.model';
-import * as ProjectActions from '../actions/project.actions'
+import * as ProjectActions from '../actions/project.actions';
 
 const initialState: Project[] = []; 
 
@@ -18,6 +18,6 @@ export function reducer(state: Project[] = initialState, action: ProjectActions.
 
 const getSortedProjects = (currentProjects: Project[], options: any) => {
     if(!currentProjects) return [];
-    const sortedProjects = [...currentProjects];
-    return sortedProjects;
+    const projectsToSort = [...currentProjects];
+    projectsToSort.sort()
 }

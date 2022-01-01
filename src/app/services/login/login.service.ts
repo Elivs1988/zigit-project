@@ -17,7 +17,7 @@ export class LoginService {
   }
   constructor(private http: HttpClient) { }
 
-  login(loginCredentials: LoginCredentials):Observable<AuthResponseData> {
-    return this.http.post<AuthResponseData>(this.authUrl, loginCredentials, this.httpOptions);
+  login(loginCredentials: LoginCredentials):Observable<AuthResponseData[]> {
+    return this.http.post<AuthResponseData[]>(this.authUrl, loginCredentials, this.httpOptions);
   }
 }
